@@ -21,6 +21,9 @@ if [ "$SETUP" = 'true' ]; then
 		echo "Configre tt-rss at http://$VIRTUAL_HOST/install/" 1>&2
 	fi
 
+	# Make the tt-rss directory writable so that the config file can be created
+	chown www-data:www-data "$ttrssPath"
+
 	# Run until config file is generated
 	while ! [ -e "$ttrssPath/config.php" ]; do
 		sleep 1
