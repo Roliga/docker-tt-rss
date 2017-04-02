@@ -3,6 +3,9 @@
 # Path to tt-rss instance
 ttrssPath='/usr/share/nginx/tt-rss/'
 
+# Config setup output path. Mount this file when running in setup mode.
+setupOutput='/config.php'
+
 # Path to tt-rss feed updater to use. Either update.php --daemon or update_daemon2.php can be used.
 updater="$ttrssPath/update_daemon2.php"
 
@@ -23,7 +26,11 @@ if [ "$SETUP" = 'true' ]; then
 		sleep 1
 	done
 
-	echo "Config file found, goodbye!" 1>&2
+	echo "Config file found, saving.." 1>&2
+
+	cp "$ttrssPath/config.php" "$setupOutput"
+
+	echo "All done, goodbye!" 1>&2
 else
 	# Run updater as ww-data user
 	su -s '/bin/sh' -c "$updater" www-data &
