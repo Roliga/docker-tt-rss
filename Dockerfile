@@ -3,7 +3,7 @@ FROM debian:latest
 # Install nginx
 RUN apt-get update && \
     apt-get -y upgrade && \
-    apt-get -y install git nginx php7.0 php7.0-pgsql php7.0-fpm php7.0-curl php7.0-cli php7.0-intl
+    apt-get -y install git nginx php7.0 php7.0-pgsql php7.0-fpm php7.0-curl php7.0-cli php7.0-intl php7.0-mbstring php-fdomdocument
 
 # Install tt-rss
 RUN git clone https://tt-rss.org/git/tt-rss.git /usr/share/nginx/tt-rss && \
