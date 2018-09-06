@@ -15,6 +15,15 @@ RUN git clone https://tt-rss.org/git/tt-rss.git /usr/share/nginx/tt-rss && \
 # Install feediron plugin
 RUN git clone git://github.com/m42e/ttrss_plugin-feediron.git /usr/share/nginx/tt-rss/plugins/feediron
 
+# Install feedly theme
+RUN git clone https://github.com/levito/tt-rss-feedly-theme.git /tmp/feedly-theme && \
+    cp -r /tmp/feedly-theme/feedly.css \
+        /tmp/feedly-theme/feedly-nightly.css \
+        /tmp/feedly-theme/feedly \
+	/usr/share/nginx/tt-rss/themes/ && \
+    rm -rf /tmp/feedly-theme
+
+
 COPY nginx-vhost.conf /etc/nginx/conf.d/
 RUN rm /etc/nginx/sites-enabled/default
 
