@@ -13,7 +13,10 @@ RUN git clone https://tt-rss.org/git/tt-rss.git /usr/share/nginx/tt-rss && \
         /usr/share/nginx/tt-rss/feed-icons
 
 # Install feediron plugin
-RUN git clone git://github.com/m42e/ttrss_plugin-feediron.git /usr/share/nginx/tt-rss/plugins/feediron
+RUN git clone git://github.com/m42e/ttrss_plugin-feediron.git /usr/share/nginx/tt-rss/plugins.local/feediron
+
+# Install tumblr gdpr plugin
+RUN git clone https://github.com/hkockerbeck/ttrss-tumblr-gdpr-ua.git /usr/share/nginx/tt-rss/plugins.local/tumblr_gdpr_ua
 
 # Install feedly theme
 RUN git clone https://github.com/levito/tt-rss-feedly-theme.git /tmp/feedly-theme && \
