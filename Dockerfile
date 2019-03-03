@@ -18,6 +18,9 @@ RUN git clone git://github.com/m42e/ttrss_plugin-feediron.git /usr/share/nginx/t
 # Install tumblr gdpr plugin
 RUN git clone https://github.com/hkockerbeck/ttrss-tumblr-gdpr-ua.git /usr/share/nginx/tt-rss/plugins.local/tumblr_gdpr_ua
 
+# Install discord_webhook plugin
+RUN git clone https://github.com/Roliga/discord_webhook.git /usr/share/nginx/tt-rss/plugins.local/discord_webhook
+
 # Install feedly theme
 RUN git clone https://github.com/levito/tt-rss-feedly-theme.git /tmp/feedly-theme && \
     cp -r /tmp/feedly-theme/feedly.css \
