@@ -23,8 +23,7 @@ RUN git clone https://github.com/Roliga/discord_webhook.git /usr/share/nginx/tt-
 
 # Install feedly theme
 RUN git clone https://github.com/levito/tt-rss-feedly-theme.git /tmp/feedly-theme && \
-    cp -r /tmp/feedly-theme/feedly.css \
-        /tmp/feedly-theme/feedly-night.css \
+    cp -r /tmp/feedly-theme/feedly*.css \
         /tmp/feedly-theme/feedly \
 	/usr/share/nginx/tt-rss/themes/ && \
     rm -rf /tmp/feedly-theme
